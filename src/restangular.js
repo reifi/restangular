@@ -971,7 +971,7 @@
             });
             return array;
           } else {
-            return _.omit(elem, _.values(_.omit(config.restangularFields, 'id')));
+            return _.omit(elem, _.values(_.omit(config.restangularFields, ['id', 'selfLink'])));
           }
         }
 
