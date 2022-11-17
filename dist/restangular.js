@@ -1,6 +1,6 @@
 /**
  * Restful Resources service for AngularJS apps
- * @version v1.6.1 - 2017-01-06 * @link https://github.com/mgonto/restangular
+ * @version v1.6.2 - 2022-11-17 * @link https://github.com/mgonto/restangular
  * @author Martin Gontovnikas <martin@gon.to>
  * @license MIT License, http://www.opensource.org/licenses/MIT
  */(function(root, factory) {
@@ -976,7 +976,7 @@
             });
             return array;
           } else {
-            return _.omit(elem, _.values(_.omit(config.restangularFields, 'id')));
+            return _.omit(elem, _.values(_.omit(config.restangularFields, ['id', 'selfLink'])));
           }
         }
 
@@ -994,7 +994,7 @@
           _.each(requestMethods, function(requestFunc, name) {
             var callOperation = name === 'delete' ? 'remove' : name;
             _.each(['do', 'custom'], function(alias) {
-              elem[alias + name.toUpperCase()] = _.bind(requestFunc, elem, callOperation);
+              elem[config.restangularFields[alias + name.toUpperCase()]] = _.bind(requestFunc, elem, callOperation);
             });
           });
           elem[config.restangularFields.customGETLIST] = _.bind(fetchFunction, elem);

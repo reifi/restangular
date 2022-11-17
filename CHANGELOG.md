@@ -1,3 +1,11 @@
+<a name="1.6.2"></a>
+## 1.6.2 (2022-11-17) (reifi)
+
+### Bug fixes
+
+* fix(stripRestangular): Do not handle selfLink as restangular field when stripping restangular fields ([8c40dc4](https://github.com/reifi/restangular/commit/8c40dc4))
+
+
 <a name="1.6.1"></a>
 ## 1.6.1 (2017-01-06)
 
